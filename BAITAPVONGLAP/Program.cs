@@ -293,7 +293,126 @@ class Program
             }
             Console.WriteLine();
         }
-        
+        */
+        //Bài 13
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+        double a, b;
+        int n;
+        bool tiepTuc = true;
+
+        while (tiepTuc)
+        {
+            Console.WriteLine("\n====== MÁY TÍNH BỎ TÚI NÂNG CAO ======");
+            Console.WriteLine("1. Cộng (+)");
+            Console.WriteLine("2. Trừ (-)");
+            Console.WriteLine("3. Nhân (*)");
+            Console.WriteLine("4. Chia (/)");
+            Console.WriteLine("5. Lũy thừa (x^y)");
+            Console.WriteLine("6. Căn bậc chẵn bất kỳ (√[n](x))");
+            Console.WriteLine("7. Tính Sigma N (1 + 2 + ... + N)");
+            Console.WriteLine("8. Tính giai thừa N!");
+            Console.WriteLine("0. Thoát");
+            Console.Write("Chọn chức năng: ");
+            int chon = int.Parse(Console.ReadLine());
+
+            switch (chon)
+            {
+                case 1:
+                    Console.Write("Nhập a: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập b: ");
+                    b = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Kết quả: {a} + {b} = {a + b}");
+                    break;
+
+                case 2:
+                    Console.Write("Nhập a: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập b: ");
+                    b = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Kết quả: {a} - {b} = {a - b}");
+                    break;
+
+                case 3:
+                    Console.Write("Nhập a: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập b: ");
+                    b = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Kết quả: {a} * {b} = {a * b}");
+                    break;
+
+                case 4:
+                    Console.Write("Nhập a: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập b: ");
+                    b = double.Parse(Console.ReadLine());
+                    if (b == 0)
+                        Console.WriteLine("Không thể chia cho 0!");
+                    else
+                        Console.WriteLine($"Kết quả: {a} / {b} = {a / b}");
+                    break;
+
+                case 5:
+                    Console.Write("Nhập cơ số x: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập số mũ y: ");
+                    b = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Kết quả: {a}^{b} = {Math.Pow(a, b)}");
+                    break;
+
+                case 6:
+                    Console.Write("Nhập số cần lấy căn x: ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập bậc căn (chẵn) n: ");
+                    n = int.Parse(Console.ReadLine());
+
+                    if (n % 2 != 0)
+                        Console.WriteLine("Chỉ hỗ trợ căn bậc CHẴN!");
+                    else if (a < 0)
+                        Console.WriteLine("Không thể lấy căn chẵn của số âm!");
+                    else
+                        Console.WriteLine($"Kết quả: căn bậc {n} của {a} = {Math.Pow(a, 1.0 / n)}");
+                    break;
+
+                case 7:
+                    Console.Write("Nhập N: ");
+                    n = int.Parse(Console.ReadLine());
+                    if (n < 1)
+                        Console.WriteLine("N phải ≥ 1!");
+                    else
+                    {
+                        long tong = (long)n * (n + 1) / 2;
+                        Console.WriteLine($"Σ(1 + 2 + ... + {n}) = {tong}");
+                    }
+                    break;
+
+                case 8:
+                    Console.Write("Nhập N: ");
+                    n = int.Parse(Console.ReadLine());
+                    if (n < 0)
+                        Console.WriteLine("Không tồn tại giai thừa cho số âm!");
+                    else
+                    {
+                        long kq = 1;
+                        for (int i = 1; i <= n; i++)
+                            kq *= i;
+                        Console.WriteLine($"{n}! = {kq}");
+                    }
+                    break;
+
+                case 0:
+                    tiepTuc = false;
+                    Console.WriteLine("Tạm biệt!");
+                    break;
+
+                default:
+                    Console.WriteLine("Lựa chọn không hợp lệ!");
+                    break;
+            }
+        }
+
+        /*
         //Bài 14
         Console.WriteLine("Nhập họ tên đầy đủ: ");
         string ten = Console.ReadLine();
@@ -532,7 +651,7 @@ class Program
             }
         }
         Console.WriteLine($"Tổng số cách đổi tiền: {count}");
-        */
+        
         //Bài 27
         Console.WriteLine("Nhập số nguyên dương N: ");
         if (!int.TryParse(Console.ReadLine(), out int N) || N <= 0)
@@ -549,6 +668,6 @@ class Program
             N /= 10;
         }
         Console.WriteLine($"Số đảo ngược của {original} là: {reversed}");
-        
+        */
     }
 }
